@@ -13,6 +13,56 @@
   padding-right: 5%;
 }
 
+/* -------------------------------
+    New or modified elements
+   -------------------------------
+*/
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 20px;
+}
+
+.aside {
+  flex: 1 auto;
+
+}
+
+.aside-1 {
+  /* background: gold; */
+  width: 20%;
+  min-width: 250px;
+  max-width: 300px;
+}
+.aside-2 {
+  /* background: hotpink; */
+  width: 40%;
+  min-width: 250px;
+  max-width: 500px;
+}
+.aside-3 {
+  /* background: lightblue; */
+}
+
+#skillsH3 {
+  color: #F5AE23;
+  display: none;
+  padding: 30px 0px 0px 0px;
+  font-size: 18px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#jobTitle {
+  color: #CCC;
+  padding: 10px;
+}
+
+/*
+*/
+
+/* ------------------------------- */
+
 h1 {
   font-size: 40px;
   color: #F5A623;
@@ -86,11 +136,6 @@ a {
   line-height: 28px;
 }
 
-#skillsH3 {
-  color: #F5AE23;
-  display: none;
-}
-
 .orange {
   background-color: #F5AE23;
 }
@@ -116,7 +161,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #784828;
 }
 
 .flex-box {
@@ -213,3 +258,4 @@ span {
     display: block;
   }
 }
+

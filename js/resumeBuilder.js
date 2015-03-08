@@ -20,6 +20,16 @@ var bio = {
         prepend_dom(DOM, HTMLheaderRole, bio.role);
         prepend_dom(DOM, HTMLheaderName, bio.name);
 
+        DOM = $('#photoHeader');
+        append_dom(DOM, HTMLbioPic, bio.pictureURL);
+
+        DOM = $('#summaryHeader');
+        append_dom(DOM, HTMLwelcomeMsg, bio.welcomeMessage);
+        DOM.append(HTMLskillsStart);
+        for (i in bio.skills) {
+            append_dom($('#summaryHeader'), HTMLskills, bio.skills[i]);
+        }
+
         DOM = $('#topContacts');
         append_dom(DOM, HTMLmobile, bio.contacts.mobile);
         append_dom(DOM, HTMLemail, bio.contacts.email);
@@ -28,13 +38,6 @@ var bio = {
         append_dom(DOM, HTMLblog, bio.contacts.blog);
         append_dom(DOM, HTMLlocation, bio.contacts.location);
 
-        DOM = $('#header');
-        append_dom(DOM, HTMLbioPic, bio.pictureURL);
-        append_dom(DOM, HTMLwelcomeMsg, bio.welcomeMessage);
-        DOM.append(HTMLskillsStart);
-        for (i in bio.skills) {
-            append_dom($('#header'), HTMLskills, bio.skills[i]);
-        }
     }
 };
 bio.display();

@@ -1,0 +1,14 @@
+Google Maps JavaScript API v3
+https://developers.google.com/maps/documentation/javascript/examples/event-closure
+
+jQuery API documentation:
+http://api.jquery.com/
+
+Mozilla Developer Network - CSS, HTML
+https://developer.mozilla.org/en-US/docs/Web/CSS/
+
+CSS-Tricks - Flexbox, and several other pages
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+Polymer
+https://www.polymer-project.org/
