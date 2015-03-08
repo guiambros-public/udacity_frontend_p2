@@ -1,0 +1,27 @@
+{
+    "jobs": [
+        {
+        "employer": "Company X",
+        "title": "Employee of the Week",
+        "location": "Seattle, WA",
+        "dates": "2010-2012",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\
+         aliquip ex ea commodo consequat."
+        },
+        {
+        "employer": "A Company",
+        "title": "Worst Employee",
+        "location": "Tucson, AZ",
+        "dates": "2012-2013",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\
+        aliquip ex ea commodo consequat."
+        }
+    ]
+    "display": function () {
+        // add here
+    };
+}

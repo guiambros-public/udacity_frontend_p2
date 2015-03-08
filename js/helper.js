@@ -24,7 +24,7 @@ var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
@@ -65,7 +65,7 @@ The International Name challenge in Lesson 2 where you'll create a function that
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName() || function(){};
-    $('#name').html(iName);  
+    $('#name').html(iName);
   });
 });
 
@@ -86,6 +86,7 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
+  logClicks(loc.clientX, loc.clientY);
 });
 
 
@@ -168,9 +169,31 @@ function initializeMap() {
       content: name
     });
 
+
     // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+    // add some tooltips over the markets. This is just placeholder; it could be
+
+
+    google.maps.event.addListener(marker, 'click', function(loc) {
+        var WUNDERGROUND_KEY = "1c695feb136b8b95"; // please keep it private
+        pos = marker.getPosition();
+        var latitude = pos.k;
+        var longitude = pos.D;
+        var url = "http://api.wunderground.com/api/" + WUNDERGROUND_KEY + "/conditions/q/" + latitude + "," + longitude + ".json";
+        console.log("Marker Lat: " + latitude + "  Long: " + longitude);
+
+        // set zoom
+        map.setZoom(8);
+        map.setCenter(marker.getPosition());
+
+        var weather = $.getJSON(url, function() {
+            var cur_temp = weather.responseJSON.current_observation;
+            var cur_temp_msg = cur_temp.temp_f + " F  (feels like " + cur_temp.feelslike_f + " F)";
+            console.log( "Weather information retrieved. Temperature " + cur_temp_msg);
+            // console.log( "icon url: " + cur_temp.icon_url );
+            var weather_info = new google.maps.InfoWindow({ content: "Current temperature: " + cur_temp_msg });
+            weather_info.open(marker.get('map'), marker);
+        });
     });
 
     // this is where the pin actually gets added to the map.
@@ -233,11 +256,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
